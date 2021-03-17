@@ -1,0 +1,102 @@
+[
+    {
+        "index": 1,
+        "movie_id": "tt2614684",
+        "title": "'71",
+        "year": 2014,
+        "director": "Yann Demange",
+        "rating": 6.8,
+        "backdrop_path": "/wlD4NgIp2mVyA3LeNqE39Lwx01J.jpg",
+        "poster_path": "/b8dmfG84peFdouN2N8wOsiI9WHt.jpg"
+    },
+    {
+        "index": 2,
+        "movie_id": "tt0443649",
+        "title": "10,000 BC",
+        "year": 2008,
+        "director": "Roland Emmerich",
+        "rating": 5.2,
+        "backdrop_path": "/11ssxHGdYFKiRcfsC84ar8HcSYX.jpg",
+        "poster_path": "/rnGR3EHkL4ryhQd50XBrtRrV8nq.jpg"
+    },
+    {
+        "index": 3,
+        "movie_id": "tt3488056",
+        "title": "10.0 Earthquake",
+        "year": 2014,
+        "director": "David Gidali",
+        "rating": 4.1,
+        "backdrop_path": "/3xOOxh2sI3HopPsq8cMmI5x5d3y.jpg",
+        "poster_path": "/orOKr1k4lmLAn1FNcgJjjdhjkiB.jpg"
+    },
+    {
+        "index": 4,
+        "movie_id": "tt2538128",
+        "title": "100 Degrees Below Zero",
+        "year": 2013,
+        "director": "R.D. Braunstein",
+        "rating": 3.5,
+        "backdrop_path": "/mDsdSZZfxnd9RpEt0JNz6hVtLD2.jpg",
+        "poster_path": "/98xEqfsOHvTyKqh7Hb4a5USmEPz.jpg"
+    },
+    {
+        "index": 5,
+        "movie_id": "tt0063970",
+        "title": "100 Rifles",
+        "year": 1969,
+        "director": "Tom Gries",
+        "rating": 5.8,
+        "backdrop_path": "/f2yD60ao9Mf1AieODFlM9eHqn3I.jpg",
+        "poster_path": "/4VghrmczyvShRX6mxJWzwGzUEJV.jpg"
+    },
+    {
+        "index": 6,
+        "movie_id": "tt0360323",
+        "title": "10th & Wolf",
+        "year": 2006,
+        "director": "Robert Moresco",
+        "rating": 6.3,
+        "backdrop_path": "/wKZx7rRXtZ8jZVLlCmNH069bPdG.jpg",
+        "poster_path": "/2OBZth9rnSyMzZR8M0WwGj8ivDG.jpg"
+    },
+    {
+        "index": 7,
+        "movie_id": "tt3957956",
+        "title": "12 Rounds 3: Lockdown",
+        "year": 2015,
+        "director": "Stephen Reynolds",
+        "rating": 5.0,
+        "backdrop_path": "/9zsbG1oNRlxR9wpvf3osq76TDXM.jpg",
+        "poster_path": "/nCtKVLCh0h8QBsPO6P4drq2vPCR.jpg"
+    },
+    {
+        "index": 8,
+        "movie_id": "tt1413492",
+        "title": "12 Strong",
+        "year": 2018,
+        "director": "Nicolai Fuglsig",
+        "rating": 5.6,
+        "backdrop_path": "/x5EUEv1N9g4BCX9GQXKvv3nqMVo.jpg",
+        "poster_path": "/j18021qCeRi3yUBtqd2UFj1c0RQ.jpg"
+    },
+    {
+        "index": 9,
+        "movie_id": "tt4172430",
+        "title": "13 Hours: The Secret Soldiers of Benghazi",
+        "year": 2016,
+        "director": "Michael Bay",
+        "rating": 7.0,
+        "backdrop_path": "/cVIb8GGPzASoN9j9z1jIJD942oJ.jpg",
+        "poster_path": "/4gpW4MkRI0BB17GHOJzXq0WamDP.jpg"
+    },
+    {
+        "index": 10,
+        "movie_id": "tt0475169",
+        "title": "13 Tzameti",
+        "year": 2005,
+        "director": "Géla Babluani",
+        "rating": 7.0,
+        "backdrop_path": "/9xDXgyfUK87dHjITe7y1c723zVe.jpg",
+        "poster_path": "/b8aKbM8IQgOAx4bnKjV5yMd4krS.jpg"
+    }
+]

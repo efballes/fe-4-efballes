@@ -1,0 +1,26 @@
+{
+  "baseUrl": "http://10.0.2.2:12345/api/g",
+  "imgUrl": "https://image.tmdb.org/t/p/original",
+  "pollLimit": 50,
+  "gatewayEPs": {
+    "reportEP": "/report"
+  },
+  "idmEPs": {
+    "loginEP": "/idm/login",
+    "registerEP": "/idm/register"
+  },
+  "movieEPs": {
+    "searchEP": "/movies/search",
+    "browseEP": "/movies/browse",
+    "getEP": "/movies/get"
+  },
+  "billingEPs": {
+    "insertEP": "/billing/cart/insert",
+    "updateEP": "/billing/cart/update",
+    "deleteEP": "/billing/cart/delete",
+    "clearEP": "/billing/cart/clear",
+    "retrieveEP": "/billing/cart/retrieve",
+    "placeEP": "/billing/order/place",
+    "transactionsEP": "/billing/order/retrieve"
+  }
+}
