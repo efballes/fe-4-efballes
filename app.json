@@ -1,0 +1,12 @@
+{
+  "name": "fe-4-efballes",
+  "displayName": "fe-4-efballes",
+  "expo": {
+    "name": "fe-4-efballes",
+    "slug": "fe-4-efballes",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
