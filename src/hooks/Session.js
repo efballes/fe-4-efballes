@@ -28,11 +28,12 @@ export const SessionProvider = ({ children }) => {
 			})
 	}
 
-	const [logged_in, logged_in_setter] = useState(getValueFor("logged_in"));
+	const [logged_in, logged_in_setter] = useState(getValueFor("logged_in")||"true");
 
 	const [email, emailSetter] = useState(getValueFor("email") || "");
-	const [session_id, session_id_setter] = useState(getValueFor("session_id"));
-	const [transaction_id, transaction_id_setter] = useState(getValueFor("transaction_id"));
+	const [password, passwordSetter] = useState(getValueFor("password") || "");
+	const [session_id, session_id_setter] = useState(getValueFor("session_id") || "");
+	const [transaction_id, transaction_id_setter] = useState(getValueFor("transaction_id") || "");
 
 	// default_instance of searchOptions has value set to basic
 	const [ searchMode, setSearchMode ] = useState(searchModeClass.BASIC);
@@ -45,6 +46,7 @@ export const SessionProvider = ({ children }) => {
 	const setters = {
 		logged_in: logged_in_setter,
 		email: emailSetter,
+		password: passwordSetter,
 		session_id: session_id_setter,
 		transaction_id: transaction_id_setter
 	};
@@ -56,8 +58,10 @@ export const SessionProvider = ({ children }) => {
 	const unset_all = () => ( Object.keys(setters).forEach(key => set(key,null)) );
 
 	const logout = () => {
-		set("session_id",null);
-		set("logged_in", null);
+		setters["session_id"](null);
+		setters["logged_in"](null);
+		SecureStore.deleteItemAsync("session_id");
+		SecureStore.deleteItemAsync("logged_in");
 	}
 	
 	const handleError = (error) => { alert(error); }

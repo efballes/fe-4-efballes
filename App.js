@@ -1,26 +1,23 @@
-import { SessionProvider } from "./src/hooks/Session";
-import { StatusBar } from 'expo-status-bar';
+import "react-native-gesture-handler";
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Login from "./src/views/login";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { SessionProvider } from "./src/hooks/Session";
+import Login from "./src/views/Login";
+import Register from "./src/views/Register";
+
+
+const Stack = createStackNavigator();
 
 export default function App() {
-  return (
-    <SessionProvider>
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Login/>
-        <StatusBar style="auto" />
-      </View>
-    </SessionProvider>
-  );
+	return (
+		<SessionProvider>
+			<NavigationContainer>
+				<Stack.Navigator initialRouteName="Login">
+					<Stack.Screen name="Login" component={Login} />
+					<Stack.Screen name="Register" component={Register} />
+				</Stack.Navigator>
+			</NavigationContainer>
+		</SessionProvider>
+	);
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
