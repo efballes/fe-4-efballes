@@ -7,7 +7,8 @@ import {
     View, Text, 
     TextInput, 
     Pressable, 
-    Alert
+    Alert,
+    TouchableOpacity
 } from "react-native";
 
 const styles = StyleSheet.create({
@@ -16,12 +17,12 @@ const styles = StyleSheet.create({
         padding: "5%",
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: "#000000",
+        backgroundColor: "#00171f",
     }, 
     text: {
         fontFamily: 'sans-serif',
         fontSize: 20,
-        color: "#fafafa",
+        color: "#ffffff",
         paddingLeft: "2%"
     },
     LabelEntry: {
@@ -31,26 +32,33 @@ const styles = StyleSheet.create({
     input: {
         fontFamily: 'sans-serif',
         fontSize: 20,
-        color: "#fafafa",
+        color: "#00171f",
         padding: "2%",
         margin: "2%",
-        backgroundColor: "#444141",
-        borderColor: "#ffffff",
+        backgroundColor: "#ffffff",
+        borderColor: "#00a8e8",
         borderWidth: 1,
         borderRadius: 15
     },
-    login: {
-        fontFamily: 'sans-serif',
-        fontSize: 35,
+    link: {
+        fontSize: 18, 
+        color:"#ffffff", 
+    },
+    Login_pressable: {
         marginTop: "5%",
         padding: "5%",
-        color: "#fafafa",
-        backgroundColor: "blue",
-        borderColor: "#fafafa",
+        backgroundColor: "#003459",
+        borderColor: "#00a8e8",
         borderWidth: 2,
         borderRadius: 15,
         textAlign: "center",
         justifyContent: "center"
+    },
+    Login_text: {
+        fontFamily: 'sans-serif',
+        fontWeight: "bold",
+        fontSize: 20,
+        color: "#ffffff",
     }
 });
 
@@ -60,7 +68,7 @@ function Login({navigation}) {
 
     const handleError = (error) => {
         const error_message = error.resultCode == null ? "Bad Request" : error.message;
-        Alert.alert(error_message);    
+        Alert.alert("Error", error_message);    
     };
 
     const handleResponse = (response) => {
@@ -69,7 +77,7 @@ function Login({navigation}) {
                 email.setter(email.value);
                 session.setter(response.session_id);
                 login_status.setter("true");
-                Alert.alert(response.message);
+                Alert.alert("Success", response.message);
                 break;
             default:
                 handleError(response);
@@ -119,23 +127,38 @@ function Login({navigation}) {
                 />
             </View>
 
+            <View style={{flexDirection:"row"}}>
+                <Text style={styles.link}>
+                    {"Are you a new user? Register "}
+                </Text>
+                <TouchableOpacity>
+                    <Pressable
+                        onPress={()=> {
+                            navigation.navigate("Register");
+                        }}
+                    >
+                        <Text
+                            style={
+                                {
+                                    fontSize: 18,
+                                    color:"#fafafa",
+                                    textDecorationLine:"underline"
+                                }
+                        }>
+                            Here
+                        </Text>
+                    </Pressable>
+                </TouchableOpacity>
+            </View>
 
-
-            <Pressable 
-                style={styles.login}
-                onPress={handleSubmit}
-            >
-                <Text style={styles.text}>register</Text>
-            </Pressable>
-
-            <Pressable 
-                style={styles.login}
-                onPress={()=> {
-                    navigation.navigate("Register");
-                }}
-            >
-                <Text style={styles.text}>Register</Text>
-            </Pressable>
+            <TouchableOpacity>
+                <Pressable
+                    style={styles.Login_pressable}
+                    onPress={handleSubmit}
+                >
+                    <Text style={styles.Login_text}>Log In</Text>
+                </Pressable>
+            </TouchableOpacity>
 
         </View>
     )
