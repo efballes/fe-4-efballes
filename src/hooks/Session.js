@@ -6,6 +6,7 @@ import * as SecureStore from "expo-secure-store";
 
 const SessionContext = createContext(null);
 export const SessionProvider = ({ children }) => {
+	
 	async function save(key, value) {
 		await SecureStore.setItemAsync(key, value);
 	}
@@ -14,7 +15,7 @@ export const SessionProvider = ({ children }) => {
 		SecureStore.getItemAsync(key)
 			.then(result => {
 				if (result) {
-					console.log("🔐 Here's your value 🔐 \n" + result);
+					console.log(`🔐 key: ${key} => result: ${result} 🔐`);
 					return result;
 				} else {
 					console.log(`No values stored under key: ${key}`);
@@ -28,12 +29,12 @@ export const SessionProvider = ({ children }) => {
 			})
 	}
 
-	const [logged_in, logged_in_setter] = useState(getValueFor("logged_in")||"true");
+	const [logged_in, logged_in_setter] = useState(getValueFor("logged_in") || "false" );
 
-	const [email, emailSetter] = useState(getValueFor("email") || "");
-	const [password, passwordSetter] = useState(getValueFor("password") || "");
-	const [session_id, session_id_setter] = useState(getValueFor("session_id") || "");
-	const [transaction_id, transaction_id_setter] = useState(getValueFor("transaction_id") || "");
+	const [email, emailSetter] = useState(getValueFor("email"));
+	const [password, passwordSetter] = useState(getValueFor("password"));
+	const [session_id, session_id_setter] = useState(getValueFor("session_id"));
+	const [transaction_id, transaction_id_setter] = useState(getValueFor("transaction_id"));
 
 	// default_instance of searchOptions has value set to basic
 	const [ searchMode, setSearchMode ] = useState(searchModeClass.BASIC);
@@ -59,7 +60,7 @@ export const SessionProvider = ({ children }) => {
 
 	const logout = () => {
 		setters["session_id"](null);
-		setters["logged_in"](null);
+		setters["logged_in"]("false");
 		SecureStore.deleteItemAsync("session_id");
 		SecureStore.deleteItemAsync("logged_in");
 	}
@@ -85,6 +86,7 @@ export const SessionProvider = ({ children }) => {
 
 	const value = {
 		email: { value: email, setter: (newVal) => set("email", newVal), },
+		password: { value: password, setter: (newVal) => set("password", newVal), },
 		session: { id: session_id, setter: (newVal) => set("session_id", newVal), }, 
 		login_status: { status: logged_in, setter: (newVal) => set("logged_in", newVal), },
 		search_options: options,
@@ -109,7 +111,15 @@ export const SessionProvider = ({ children }) => {
 };
 
 export const useSession = () => {
-	const { email, session, login_status, movies, movie, search_options, logout, unsetter, movies_request } = useContext(SessionContext);
+	const { 
+		email, password, session, login_status, 
+		movies, movie, search_options, logout, 
+		unsetter, movies_request 
+	} = useContext(SessionContext);
 
-	return { email, session, login_status, movies, movie, search_options, logout, unsetter, movies_request };
+	return { 
+		email, password, session, login_status, 
+		movies, movie, search_options, logout, 
+		unsetter, movies_request 
+	};
 };

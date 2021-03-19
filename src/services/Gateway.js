@@ -14,7 +14,6 @@ async function getReport(response, request_headers={}) {
 		baseURL: baseUrl,
 		url: gatewayEPs.reportEP,
 	};
-	console.log(props)
 	for (let i = 0; i < pollLimit; i++) {
 		const response = await Socket.GET(props);
 
@@ -22,23 +21,29 @@ async function getReport(response, request_headers={}) {
 			/**********************************************
 				TODO More Robust checking for response
 			**********************************************/
-			console.log("RESPONSE: ", response);
+			console.log("Returning non-noContent response");
 			return response;
 		} else await timeOut();
 	}
 
 	/**********************************************
 		TODO Better missing response management
-	**********************************************/
+	***********************************************/
+
+
+	console.log(`After Polling ${pollLimit} times`)
 	if(response.status !== noContent) {
-		console.log("ERROR RESPONSE: ", response);
-		console.log("RETURNING UNDEFINED")
+		console.log(`Response: ${reponse}`);
+		console.log("RETURNING UNDEFINED");
 		return undefined;
+	} else {
+		console.log("RETURNING: {status: 204, request_headers, response }");
+		return {
+			status:noContent,
+			request_headers,
+			response,
+		};
 	}
-	return {
-		status:noContent,
-		data: { response: response, request_headers: request_headers }
-	};
 }
 
 async function timeOut() {

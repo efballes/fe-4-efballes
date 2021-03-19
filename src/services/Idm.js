@@ -16,7 +16,6 @@ export async function LogOrReg(email, password, isNewUser) {
     };
     console.log(options);
     const response = await Socket.POST(options);
-    console.log(response);
     return await Gateway.getReport(response);
 }
 
