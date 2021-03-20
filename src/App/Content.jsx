@@ -2,19 +2,12 @@ import React from 'react'
 import Login from "../views/Login";
 import Register from "../views/Register";
 import Home from "../views/Home";
+import MovieDetails from "../views/MovieDetails";
 import { useSession } from "../hooks/Session";
-import { StyleSheet } from "react-native";
 
 
 const Content = ({Stack}) => {
     const { login_status } = useSession();
-    const options = StyleSheet.create({
-        headerStyle: {
-            backgroundColor: "#007EA7"
-        },
-        headerTintStyle: {},
-        headerTitleStyle: {}
-    });
     return (
         <Stack.Navigator 
             initialRouteName={ login_status.status === "true" ? "Home" : "Login" }
@@ -28,8 +21,7 @@ const Content = ({Stack}) => {
                 }
             }}
         >
-            <Stack.Screen name="Home" component={Home}/>
-        {/* { login_status.status === "false" ? 
+        { login_status.status === "false" ? 
             (<>
                 <Stack.Screen name="Login" component={Login}/>
                 <Stack.Screen name="Register" component={Register}/>
@@ -37,8 +29,9 @@ const Content = ({Stack}) => {
             :
             (<>
                 <Stack.Screen name="Home" component={Home}/>
+                <Stack.Screen name="Details" component={MovieDetails}/>
             </>)
-        } */}
+        }
 		</Stack.Navigator>
     );
 }

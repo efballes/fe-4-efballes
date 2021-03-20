@@ -108,10 +108,12 @@ export default class MovieSearchParams {
                 { 
                     label: "Genre",
                     name: "genre",
+                    placeholder: "Action",
                 },
                 { 
                     label: "Year",
                     name: "year",
+                    placeholder: "2019",
                     keyboardType: "numeric"
                 },
             ];

@@ -32,14 +32,12 @@ export const style = StyleSheet.create({
 });
 
 export default function SearchOptionsModal({visible, setVisible, styles}){
-    const { search_options } = useSession();
+    const { search_options, movies_request } = useSession();
     const [ mode, setMode ] = useState(search_options.getCurrentLabel());
     const modeSetter = (itemValue, itemIndex) => {
         search_options.setState(itemValue);
         setMode(itemValue);
     }
-
-
     return (
         <View>
             <Modal
@@ -73,7 +71,14 @@ export default function SearchOptionsModal({visible, setVisible, styles}){
                         </View>
                         <View style={styles.Row}>
                             <Bttn title="close" styles={styles} onPress={()=>setVisible(!visible)}/>
-                            <Bttn title="Search"styles={styles} />
+                            <Bttn title="Search"styles={styles} onPress={()=>{
+                                const request = search_options.getRequest();
+                                if( !request.param ) { return; }
+                                else {
+                                    movies_request(request);
+                                    setVisible(!visible);
+                                }
+                            }}/>
                         </View>
                     </SearchForm>
                 </View>

@@ -1,4 +1,5 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
+import {Alert} from "react-native";
 import {SearchModeOptions as searchModeClass, default_instance as options } from "../Javascript/SearchModeOptions";
 import movie_services from "../services/Movies";
 import default_movies from "../Javascript/default_movies.json";
@@ -65,7 +66,10 @@ export const SessionProvider = ({ children }) => {
 		SecureStore.deleteItemAsync("logged_in");
 	}
 	
-	const handleError = (error) => { alert(error); }
+	const handleError = (error) => {
+        const error_message = error.resultCode == null ? "Bad Request" : error.message;
+        Alert.alert("Error", error_message);    
+    };
 
 	const handle_movies_response = (request_type, response) => {
 		if(request_type === "get"){

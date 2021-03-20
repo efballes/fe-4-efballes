@@ -1,20 +1,30 @@
-import React, {useState} from "react";
-import Screen from "../components/Screen";
+import React from "react";
+import { StatusBar } from 'expo-status-bar';
 import NavBar from "../components/NavBar";
 import MovieList from "../components/MovieList"
-import { StyleSheet, Modal } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 const styles = StyleSheet.create({
     Screen: {
-        padding: "0%"
+        flex: 1,
+        padding: "2%",
+        alignItems: 'center',
+        backgroundColor: "#00171F",
+        justifyContent: "flex-start",
     }
 });
 
-export default function Home() {
+export default function Home({route, navigation}) {
     return (
-        <Screen style={styles.Screen}>
+        <View 
+            style={styles.Screen}
+        >
+            <StatusBar style="auto"/>
             <NavBar/>
-            {/* <MovieList/> */}
-        </Screen>
+            <MovieList 
+                route={route}
+                navigation={navigation}
+            />
+        </View>
     );
 }

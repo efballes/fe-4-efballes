@@ -54,15 +54,30 @@ export const styles = StyleSheet.create({
 
 export default function NavBar() {
     const [modalVisible, setModalVisible] = useState(false);
-    const { seach_options } = useSession();
+    const { seach_options, movies_request, logout } = useSession();
 
     return (
         <View style={styles.Container}>
             <View style={styles.Row}>
-                <Bttn title="Options" styles={styles} onPress={()=>{
-                    setModalVisible(!modalVisible);
-                }}/>
-                <Bttn title="Search" styles={styles}/>
+                <Bttn 
+                    title="Options" 
+                    styles={styles} 
+                    onPress={()=>{
+                        setModalVisible(!modalVisible);
+                    }}
+                />
+                <Bttn 
+                    title="Reset" 
+                    styles={styles} 
+                    onPress={()=>{
+                        search_options.setState("Advanced");
+                        search_options.search_params.setter("genre", "action");
+                        search_options.search_params.setter("year", "2019");
+                        const request = search_options.getRequest();
+                        movies_request(request);
+                    }}
+                />
+                <Bttn title="Log Out" styles={styles} onPress={logout}/>
             </View>
             <SearchOptionsModal 
                 visible={modalVisible}
