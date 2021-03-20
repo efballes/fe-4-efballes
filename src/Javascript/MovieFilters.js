@@ -64,6 +64,15 @@ export default class MovieFilters {
             default: return false;
         }
     }
+    getter(field) {
+        switch (field?.toLowerCase()) {
+            case "limit": return `${this.limit}`;
+            case "offset": return `${this.offset}`;
+            case "orderby": return `${this.orderby}`;
+            case "direction": return `${this.direction}`;
+            default: return null;
+        }
+    }
     updateOffset(operator) {
         let lim = this.getLimit();
         let current = this.getOffset();
@@ -86,9 +95,9 @@ export default class MovieFilters {
 
     forForm() {
         return [
-            { label: "limit", name:"limit", options:this.getAllowedLimits() },
-            { label: "orderby", name:"orderby", options:this.getAllowedOrderbys() },
-            { label: "direction", name:"direction", options:this.getAllowedDirection() },
+            { label: "limit", name:"Limit", options:this.getAllowedLimits().map(option=>({label:option, value:option})) },
+            { label: "orderby", name:"Orderby", options:this.getAllowedOrderbys().map(option=>({label:option, value:option})) },
+            { label: "direction", name:"Direction", options:this.getAllowedDirection().map(option=>({label:option, value:option})) },
         ];
     }
     getValidatedParams() {

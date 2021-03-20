@@ -28,8 +28,7 @@ const Content = ({Stack}) => {
                 }
             }}
         >
-        <Stack.Screen name="Login" component={Login}/>
-        <Stack.Screen name="Register" component={Register}/>
+            <Stack.Screen name="Home" component={Home}/>
         {/* { login_status.status === "false" ? 
             (<>
                 <Stack.Screen name="Login" component={Login}/>

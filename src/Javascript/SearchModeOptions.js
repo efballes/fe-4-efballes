@@ -110,6 +110,10 @@ export default class SearchModeOptions {
     }
 
     // ? MISC
+    forSearchForm(){
+        return this.search_params.forSearchForm(this.getCurrentLabel(), this.getCurrentPlaceholder());
+    }
+
     processMovieList(movie_list) {
         let offset = this.search_filter?.getOffset();
         return movie_list?.map((movie,i) => ({index:offset+i+1, ...movie}));

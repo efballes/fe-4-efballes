@@ -75,6 +75,48 @@ export default class MovieSearchParams {
             { label: "Year", name: "year", type:"number", },
         ];
     }
+    
+    forSearchForm(value, placeholder) {
+        if( value === "Basic" ) {
+            return [
+                {
+                    label: "Title",
+                    name: "title",
+                    placeholder: placeholder
+                },
+            ];
+        } else if( value === "Browse" ) {
+            return [
+                {
+                    label: "Phrase",
+                    name: "phrase",
+                    placeholder: placeholder,
+                },
+            ];
+        } else if( value === "Advanced") {
+            return [
+                {
+                    label: "Title",
+                    name: "title",
+                    placeholder: placeholder,
+                },
+                { 
+                    label: "Director",
+                    name: "director", 
+                    placeholder: "Christopher Nolan",
+                },
+                { 
+                    label: "Genre",
+                    name: "genre",
+                },
+                { 
+                    label: "Year",
+                    name: "year",
+                    keyboardType: "numeric"
+                },
+            ];
+        }
+    }
 
     getParams() {
         if(this.type === BROWSE) { return { phrase: this.phrase }; }

@@ -15,7 +15,7 @@ export const SessionProvider = ({ children }) => {
 		SecureStore.getItemAsync(key)
 			.then(result => {
 				if (result) {
-					console.log(`🔐 key: ${key} => result: ${result} 🔐`);
+					console.log(`🔐 key: ${key} => result: ${result}`);
 					return result;
 				} else {
 					console.log(`No values stored under key: ${key}`);

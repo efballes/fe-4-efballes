@@ -1,32 +1,20 @@
-import React from "react";
-import { 
-    StyleSheet, 
-    View, Text, 
-    TextInput, 
-    Pressable, 
-    Alert,
-    TouchableOpacity
-} from "react-native";
+import React, {useState} from "react";
+import Screen from "../components/Screen";
+import NavBar from "../components/NavBar";
+import MovieList from "../components/MovieList"
+import { StyleSheet, Modal } from "react-native";
+
+const styles = StyleSheet.create({
+    Screen: {
+        padding: "0%"
+    }
+});
 
 export default function Home() {
     return (
-        <View>
-            <Text>Hello Home</Text>
-        </View>
+        <Screen style={styles.Screen}>
+            <NavBar/>
+            {/* <MovieList/> */}
+        </Screen>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: "5%",
-        alignItems: 'flex-start',
-        justifyContent: 'center',
-        backgroundColor: "#00171f",
-    }, 
-    text: {
-        fontFamily: 'sans-serif',
-        fontSize: 20,
-        color: "#ffffff"
-    }
-});

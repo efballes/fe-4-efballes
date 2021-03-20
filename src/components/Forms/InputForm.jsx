@@ -16,7 +16,7 @@ const default_styles = StyleSheet.create({
     }
 });
 
-export default function InputForm({title, fields, styles, children}) {
+export default function InputForm({title, header, fields, styles, children}) {
     return (
         <View 
             style={{
@@ -24,7 +24,8 @@ export default function InputForm({title, fields, styles, children}) {
                 ...styles?.InputFormContainer
             }}
         >
-            <Title text={title}/>
+            { title && (<Title text={title}/>)}
+            { header }
             { 
                 fields.map(
                     (props, key) => 
